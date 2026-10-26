@@ -1,0 +1,50 @@
+[
+  {
+    "tanggal": "2026-08-31",
+    "keterangan": "Serah terima saldo uang kas dari bendahara RT 05 lama ke bendahara RT 05 baru (KM001)",
+    "pemasukan": 7916650,
+    "pengeluaran": 0
+  },
+  {
+    "tanggal": "2026-09-07",
+    "keterangan": "Pembelian Buku Folio untuk pembukuan kas dan alat tulis (KK001)",
+    "pemasukan": 0,
+    "pengeluaran": 23000
+  },
+  {
+    "tanggal": "2026-09-11",
+    "keterangan": "Bulanan ke RW Rp225.000, PHBN Rp 250.000, Kematian Rp 250.000. Total Rp 725.000. Pembayaran bulan Agustus dan September 2026 sebesar Rp 1.450.000 (KK002)",
+    "pemasukan": 0,
+    "pengeluaran": 1450000
+  },
+  {
+    "tanggal": "2026-09-29",
+    "keterangan": "Terima setoran iuran RT, Dawis 1: Rp 608.000 dan Dawis 2: Rp 722.000. Total Rp 1.330.000 (KM002)",
+    "pemasukan": 1330000,
+    "pengeluaran": 0
+  },
+  {
+    "tanggal": "2026-10-01",
+    "keterangan": "Bulanan ke RW Rp225.000, PHBN Rp 250.000, Kematian Rp 250.000. Total Rp 725.000. Pembayaran bulan Oktober (KK003)",
+    "pemasukan": 0,
+    "pengeluaran": 725000
+  },
+  {
+    "tanggal": "2026-10-10",
+    "keterangan": "Pembelian ATK (Folder plastik dan buku tulis) (KK004)",
+    "pemasukan": 0,
+    "pengeluaran": 15000
+  },
+  {
+    "tanggal": "2026-10-11",
+    "keterangan": "Pembelian buku Tabungan untuk rapat konsumsi per 2 bulanan (KK005)",
+    "pemasukan": 0,
+    "pengeluaran": 15000
+  },
+  {
+    "tanggal": "2026-10-26",
+    "keterangan": "Terima setoran iuran RT, Dawis 1: Rp 684.000 dan Dawis 2: Rp 722.000. Total Rp 1.406.000 (KM003)",
+    "pemasukan": 1406000,
+    "pengeluaran": 0
+  }
+]

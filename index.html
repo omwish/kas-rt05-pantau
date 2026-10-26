@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kas RT 05 - Mode Pantau</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f4f4;color:#222;font-family:Arial,sans-serif}
+header{background:#7a2026;color:white;padding:16px 14px}
+h1{font-size:20px;margin:0 0 4px}
+.sub,.status{font-size:12px}
+.wrap{max-width:1000px;margin:10px auto;padding:0 8px}
+.card{background:white;border-radius:10px;padding:12px;margin-bottom:10px;box-shadow:0 1px 6px #0001}
+.status{color:#633}
+.bal{font-size:19px;font-weight:bold;margin-top:5px}
+.tbl{overflow:auto}
+table{width:100%;min-width:680px;border-collapse:collapse;font-size:12px}
+th,td{padding:8px 7px;border-bottom:1px solid #ddd;text-align:left}
+th{background:#eee1e2}
+.num{text-align:right;white-space:nowrap}
+.date{white-space:nowrap}
+footer{text-align:center;color:#777;font-size:12px;padding:14px 10px 20px}
+</style>
+</head>
+<body>
+<header>
+<h1>🏘️ Kas RT 05 — Mode Pantau</h1>
+<div class="sub">RT 05 / RW 04 • Periode 2026 – 2031</div>
+</header>
+<main class="wrap">
+<section class="card">
+<div class="status">👁️ READ ONLY • Hanya untuk melihat informasi kas</div>
+<div class="bal">Saldo Saat Ini: <span id="saldo">Memuat...</span></div>
+<div id="updated" class="status">Memuat data...</div>
+</section>
+<section class="card tbl">
+<table>
+<thead><tr>
+<th>Tanggal</th><th>Keterangan</th>
+<th class="num">Pemasukan</th>
+<th class="num">Pengeluaran</th>
+<th class="num">Saldo</th>
+</tr></thead>
+<tbody id="tbody"></tbody>
+</table>
+</section>
+</main>
+<footer>
+Kas RT 05 • READ ONLY • Tidak dapat diedit<br><br>
+© 2026 Wisnu Hardono — Hak Cipta Pengembang
+</footer>
+<script>
+const rp=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const disp=s=>{const p=String(s||'').split('-');return p.length===3?`${p[2]}-${p[1]}-${p[0]}`:s||''};
+async function load(){
+ const updated=document.getElementById('updated');
+ try{
+  const r=await fetch('./data.json',{cache:'no-store'});
+  if(!r.ok)throw Error('HTTP '+r.status);
+  const d=await r.json();
+  if(!Array.isArray(d))throw Error('Format data tidak valid');
+  let saldo=0;
+  document.getElementById('tbody').innerHTML=d.map(x=>{
+   const m=Number(x.pemasukan)||0,e=Number(x.pengeluaran)||0;saldo+=m-e;
+   return `<tr><td class="date">${esc(disp(x.tanggal))}</td><td>${esc(x.keterangan)}</td><td class="num">${m?rp(m):'-'}</td><td class="num">${e?rp(e):'-'}</td><td class="num"><b>${rp(saldo)}</b></td></tr>`;
+  }).join('');
+  document.getElementById('saldo').textContent=rp(saldo);
+  updated.textContent='Jumlah transaksi: '+d.length+' • Terakhir dimuat: '+new Date().toLocaleString('id-ID');
+ }catch(err){
+  document.getElementById('saldo').textContent='Belum tersedia';
+  updated.textContent='Data gagal dimuat. Silakan muat ulang halaman.';
+  console.error(err);
+ }
+}
+load();
+</script>
+</body>
+</html>
