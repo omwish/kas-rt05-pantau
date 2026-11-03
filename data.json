@@ -46,5 +46,11 @@
     "keterangan": "Terima setoran iuran RT, Dawis 1: Rp 684.000 dan Dawis 2: Rp 722.000. Total Rp 1.406.000 (KM003)",
     "pemasukan": 1406000,
     "pengeluaran": 0
+  },
+  {
+    "tanggal": "2026-11-02",
+    "keterangan": "Bulanan ke RW Rp225.000, PHBN Rp 250.000, Kematian Rp 250.000. Total Rp 725.000. Pembayaran bulan November 2026 (KK006)",
+    "pemasukan": 0,
+    "pengeluaran": 725000
   }
 ]
