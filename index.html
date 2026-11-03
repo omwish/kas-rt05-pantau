@@ -58,7 +58,7 @@ const disp=s=>{const p=String(s||'').split('-');return p.length===3?`${p[2]}-${p
 async function load(){
  const updated=document.getElementById('updated');
  try{
-  const r=await fetch('./data.json',{cache:'no-store'});
+  const r=await fetch('./data.json?ts='+Date.now(),{cache:'no-store'});
   if(!r.ok)throw Error('HTTP '+r.status);
   const d=await r.json();
   if(!Array.isArray(d))throw Error('Format data tidak valid');
@@ -76,6 +76,7 @@ async function load(){
  }
 }
 load();
+setInterval(load,30000);
 </script>
 </body>
 </html>
