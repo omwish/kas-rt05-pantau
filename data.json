@@ -52,11 +52,5 @@
     "keterangan": "Bulanan ke RW Rp225.000, PHBN Rp 250.000, Kematian Rp 250.000. Total Rp 725.000. Pembayaran bulan November 2026 (KK006)",
     "pemasukan": 0,
     "pengeluaran": 725000
-  },
-  {
-    "tanggal": "2026-11-03",
-    "keterangan": "Tes kedua sinkronisasi",
-    "pemasukan": 100,
-    "pengeluaran": 0
   }
 ]
